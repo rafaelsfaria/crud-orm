@@ -1,8 +1,25 @@
 <%- include('../partials/header') %>
 
-<div class="starter-template">
-  <h1>Projeto CRUD com driver mysql2 e ORM Sequelize</h1>
-  <p class="lead">Projeto fullstack pleno semana 5 - complementar</p>
-</div>
+<h1>Pessoas</h1>
+<p><a href="/pessoas/create">Adicionar pessoa</a></p>
+<table class="table table-striped table-hover table-bordered">
+  <tr>
+    <th>Nome</th>
+    <th>Cargo</th>
+    <th>Ações</th>
+  </tr>
+  <% pessoas.forEach(pessoa => { %>
+  <tr>
+      <td><%= pessoa.nome %></td>
+      <td><%= pessoa.cargo %></td>
+      <td>
+        <div class="btn btn-group" role="group">
+          <a href="/pessoas/edit/<%= pessoa.id %>" class="btn btn-default">Editar</a>
+          <a href="/pessoas/delete/<%= pessoa.id %>" class="btn btn-danger">Excluir</a>
+        </div>
+      </td>
+    </tr>
+  <% }) %>
+</table>
 
 <%- include('../partials/footer') %>
